@@ -1,4 +1,4 @@
-# MOPeK: Multi-Omics Peptide Knowledge Graph — Local Setup
+# MOPeK: Multi-Omics Peptide Knowledge Graph 
 
 This package lets you run the complete MOPeK knowledge graph on your own
 machine — all 1,232,604 nodes and well over 1,000,000 relationships
