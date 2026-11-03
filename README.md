@@ -111,8 +111,15 @@ docker compose down
 
 The default password (`mopek2026`) is only meant to get you started
 quickly. If you plan to run this long-term or on a shared machine,
-change it after first login via the Neo4j Browser's user menu, or by
-editing `NEO4J_AUTH` in `docker-compose.yml` before first start.
+change it after first login via the Neo4j Browser's user menu, or with
+`cypher-shell`:
+
+```bash
+docker exec -it mopek-neo4j cypher-shell -u neo4j -p mopek2026
+```
+```cypher
+ALTER CURRENT USER SET PASSWORD FROM 'mopek2026' TO 'your_new_password';
+```
 
 ## Troubleshooting
 
