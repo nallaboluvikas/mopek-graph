@@ -1,4 +1,4 @@
-# MOPeK: Multi-Omics Peptide Knowledge Graph 
+# MOPeK: Multi-Omics Peptide Knowledge Graph — Local Setup
 
 This package lets you run the complete MOPeK knowledge graph on your own
 machine — all 1,232,604 nodes and well over 1,000,000 relationships
@@ -19,8 +19,10 @@ the initial download.
 
 ## Setup (one-time)
 
-1. **Download** `mopek_neo4j_data.tar.gz` from the Zenodo record linked
-   in the paper (DOI in the Data and Code Availability section).
+1. **Download** `mopek_neo4j_data.tar.gz` from this repository's
+   [Releases page](https://github.com/nallaboluvikas/mopek-graph/releases/latest),
+   along with `docker-compose.yml` and this `README.md` from the main
+   repository page above — put all three in the same folder.
 
 2. **Extract it** into this folder, so you end up with a `data/`
    subfolder sitting right next to this README and the
