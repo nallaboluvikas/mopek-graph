@@ -145,7 +145,7 @@ ALTER CURRENT USER SET PASSWORD FROM 'mopek2026' TO 'your_new_password';
 
 If you use MOPeK in your research, please cite:
 
-Nallabolu V, Lei [surname]. MOPeK: A Multi-Omics Peptide Knowledge Graph
+Nallabolu V, Lei Xei. MOPeK: A Multi-Omics Peptide Knowledge Graph
 for Therapeutic Peptide Discovery and Multi-Hop Biomedical Reasoning.
 [bioRxiv preprint details].
 
