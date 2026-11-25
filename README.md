@@ -1,7 +1,7 @@
 # MOPeK: Multi-Omics Peptide Knowledge Graph — Local Setup
 
 This package lets you run the complete MOPeK knowledge graph on your own
-machine — all 1,232,604 nodes and well over 1,000,000 relationships
+machine — all 1,232,604+ nodes and well over 1,000,000 relationships
 across 19 entity types, exactly as described in the accompanying paper.
 No cloud account, no size limits, no internet connection required after
 the initial download.
@@ -11,7 +11,7 @@ the initial download.
 - **Docker** and **Docker Compose** installed
   (<https://docs.docker.com/get-docker/> if you don't have it yet)
 - **At least 2 GB of free RAM** allocated to Docker, and **6 GB of
-  free disk space** (the compressed database is ~354 MB; it expands to
+  free disk space** (the compressed database is ~299 MB; it expands to
   ~1.9 GB on disk, plus working memory for Neo4j itself). This has been
   tested successfully with Docker Desktop configured for as little as
   4 GB total VM memory on an Apple Silicon Mac.
@@ -89,6 +89,12 @@ MATCH (p:Peptide) WHERE toLower(p.name) CONTAINS toLower("insulin")
 RETURN p.peptide_id, p.name, p.source LIMIT 25
 ```
 
+```cypher
+// Find an approved peptide's corresponding Therapy entity directly
+MATCH (p:Peptide)-[:USED_AS]->(t:Therapy)
+RETURN p.name, t.pharmgkb_id LIMIT 25
+```
+
 ## Stopping and restarting
 
 To stop the database (your data is preserved):
@@ -140,16 +146,20 @@ ALTER CURRENT USER SET PASSWORD FROM 'mopek2026' TO 'your_new_password';
   three settings works on very constrained machines, though performance
   will be slower). After editing, run `docker compose down` followed by
   `docker compose up -d` to apply the change.
+- **"Conflict: container name already in use"** — you already have a
+  `mopek-neo4j` container running elsewhere. Run
+  `docker compose down` in that other folder first, or rename the
+  `container_name` in this `docker-compose.yml` to something unique.
 
 ## Citation
 
 If you use MOPeK in your research, please cite:
 
-Nallabolu V, Lei Xei. MOPeK: A Multi-Omics Peptide Knowledge Graph
-for Therapeutic Peptide Discovery and Multi-Hop Biomedical Reasoning.
+Nallabolu V, Xie L. MOPeK: A Multi-Omics Peptide Knowledge Graph for
+Therapeutic Peptide Discovery and Multi-Hop Biomedical Reasoning.
 [bioRxiv preprint details].
 
 ## Questions
 
-Contact [corresponding author email] for questions, bug reports, or
+Contact nallabolu.v@northeastern.edu for questions, bug reports, or
 collaboration inquiries.
